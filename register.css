@@ -1,0 +1,507 @@
+/* ===== Registration Page ===== */
+.register-page {
+    min-height: 100vh;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+    position: relative;
+}
+
+.reg-back-portal {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+    margin-bottom: 24px;
+}
+
+.reg-back-portal svg {
+    width: 16px;
+    height: 16px;
+}
+
+[dir="rtl"] .reg-back-portal svg {
+    transform: scaleX(-1);
+}
+
+.reg-back-portal:hover {
+    color: var(--gold);
+    border-color: rgba(245, 166, 35, 0.3);
+}
+
+/* Logo */
+.reg-logo-wrap {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.reg-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(245, 166, 35, 0.35);
+    box-shadow: 0 6px 30px rgba(245, 166, 35, 0.2);
+}
+
+/* Step container */
+.reg-step {
+    display: none;
+    animation: stepIn 0.5s ease forwards;
+}
+
+.reg-step.active {
+    display: block;
+}
+
+@keyframes stepIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Intro */
+.reg-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--text), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.4;
+}
+
+.reg-subtitle {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+/* Info List (intro) */
+.reg-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.info-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.info-item span:last-child {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+/* Start CTA */
+.reg-cta {
+    width: 100%;
+    padding: 16px;
+    background: var(--gold-gradient);
+    border-radius: var(--radius-md);
+    color: #111;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all var(--transition);
+    cursor: pointer;
+    border: none;
+    font-family: var(--font);
+}
+
+.reg-cta:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.reg-cta:not(:disabled):hover {
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
+}
+
+[dir="rtl"] .reg-cta svg {
+    transform: scaleX(-1);
+}
+
+.reg-cta svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Step header */
+.step-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.step-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    background: rgba(245, 166, 35, 0.12);
+    border: 1px solid rgba(245, 166, 35, 0.2);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.step-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.step-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+/* Age Grid */
+.age-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.age-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 28px 12px;
+    background: var(--bg-elevated);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: var(--font);
+    color: var(--text);
+}
+
+.age-btn:hover {
+    border-color: rgba(245, 166, 35, 0.35);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-gold);
+}
+
+.age-btn:active {
+    transform: translateY(-1px) scale(0.97);
+}
+
+.age-emoji {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.age-label {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.age-range {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Frequency Grid */
+.freq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.freq-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px;
+    background: var(--bg-elevated);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: var(--font);
+    color: var(--text);
+    overflow: hidden;
+}
+
+.freq-btn:hover {
+    border-color: rgba(245, 166, 35, 0.3);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+.freq-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.freq-btn.popular {
+    border-color: rgba(245, 166, 35, 0.3);
+    background: linear-gradient(135deg, rgba(245, 166, 35, 0.06), var(--bg-elevated));
+}
+
+.freq-popular-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+}
+
+.freq-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.freq-subtitle {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.freq-btn.open-plan {
+    border-style: dashed;
+    border-color: rgba(245, 166, 35, 0.25);
+}
+
+/* Back button */
+.reg-back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: var(--font);
+}
+
+.reg-back-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+[dir="rtl"] .reg-back-btn svg {
+    transform: scaleX(-1);
+}
+
+.reg-back-btn:hover {
+    color: var(--text);
+    border-color: var(--border-light);
+}
+
+/* Confirmation Modal */
+.confirm-card {
+    text-align: center;
+    max-width: 460px;
+}
+
+.confirm-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    background: rgba(245, 166, 35, 0.12);
+    border: 1px solid rgba(245, 166, 35, 0.25);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    animation: confirmPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes confirmPop {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.confirm-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.confirm-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.confirm-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.confirm-tips {
+    text-align: right;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    margin-bottom: 24px;
+}
+
+.confirm-tips h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+.confirm-tips ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.confirm-tips li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text);
+}
+
+.confirm-tips li svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--gold);
+}
+
+.tip-emoji {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    width: 18px;
+    text-align: center;
+}
+
+.confirm-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    background: var(--gold-gradient);
+    border-radius: var(--radius-md);
+    color: #111;
+    font-weight: 700;
+    font-size: 1.05rem;
+    font-family: var(--font);
+    transition: all var(--transition);
+    text-decoration: none;
+}
+
+.confirm-cta:hover {
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
+}
+
+.confirm-cta svg {
+    width: 18px;
+    height: 18px;
+}
+
+.confirm-cancel {
+    margin-top: 12px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    cursor: pointer;
+    font-family: var(--font);
+    padding: 8px;
+    transition: color var(--transition);
+}
+
+.confirm-cancel:hover {
+    color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .register-page {
+        padding: 16px 14px 48px;
+    }
+
+    .reg-title {
+        font-size: 1.3rem;
+    }
+
+    .reg-logo {
+        width: 64px;
+        height: 64px;
+    }
+
+    .age-grid {
+        gap: 8px;
+    }
+
+    .age-btn {
+        padding: 20px 8px;
+    }
+
+    .age-emoji {
+        font-size: 1.8rem;
+    }
+
+    .age-label {
+        font-size: 0.92rem;
+    }
+
+    .freq-btn {
+        padding: 16px 14px;
+    }
+
+    .confirm-card {
+        padding: 28px 20px;
+    }
+}

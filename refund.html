@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>זיכויים | פריינטה אקדמי</title>
+    <meta name="description" content="טופס זיכויים – פריינטה אקדמי">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="refund.css">
+</head>
+<body>
+
+    <!-- Back to portal -->
+    <a href="index.html" class="reg-back-portal" id="backToPortal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>חזרה לפורטל</span>
+    </a>
+
+    <!-- Main Container -->
+    <main class="refund-container">
+
+        <!-- Phase 1: Intro Page -->
+        <div id="phase1" class="phase active">
+            <div class="logo-wrap">
+                <img src="lion-logo.png" alt="פריינטה אקדמי" class="brand-logo">
+            </div>
+            
+            <h1 class="main-title">זיכויים</h1>
+            
+            <div class="intro-content">
+                <p class="body-text">לפני שנעבור להזנת פרטי הכרטיס, חשוב לנו לוודא שהתהליך יתבצע בצורה חלקה. <br>אנא וודאו שתיאמתם מראש את סכום הזיכוי או התשלום מול עידו או מנהל המועדון. הפעולה שתבצעו כעת תעודכן במערכות המועדון ותטופל בהתאם לסיכום אליו הגעתם.</p>
+                
+                <div class="whatsapp-guidance">
+                    <strong>במידה וטרם תיאמתם את הפרטים</strong><br>
+                    לחצו על אייקון הווצאפ בצד לצורך תיאום מול מנהל המועדון, ולאחר מכן חזרו לכאן להמשך התהליך.
+                </div>
+                
+                <p class="transition-note">לאחר לחיצה על הכפתור, תועברו להזנת פרטי האשראי בצורה מאובטחת.</p>
+                
+                <button class="cta-btn" id="startRefundBtn">המשך להזנת פרטי אשראי</button>
+            </div>
+        </div>
+
+        <!-- Phase 2: Payment Form Logic -->
+        <div id="phase2" class="phase">
+            <div class="form-wrapper">
+                <form class="form-card" id="refundForm" novalidate>
+                    <div class="form-header">
+                        <h2>הזנת פרטי אשראי לזיכוי</h2>
+                        <p>הפרטים מועברים בצורה מוצפנת ומאובטחת</p>
+                    </div>
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullName">שם מלא (של המתאמן במועדון)</label>
+                        <input type="text" id="fullName" placeholder="ישראל ישראלי" required autocomplete="name">
+                    </div>
+
+                    <!-- Refund Amount -->
+                    <div class="form-group">
+                        <label for="refundAmount">סכום זיכוי (בש"ח)</label>
+                        <input type="number" id="refundAmount" placeholder="לדוגמה: 150" required min="1" step="1">
+                    </div>
+
+                    <!-- Card Number -->
+                    <div class="form-group">
+                        <label for="cardNumber">מספר כרטיס</label>
+                        <input type="password" id="cardNumber" placeholder="0000 0000 0000 0000" required maxlength="19" inputmode="numeric" autocomplete="cc-number">
+                    </div>
+
+                    <!-- Expiry & CVV Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiryDate">תוקף (MM/YY)</label>
+                            <input type="text" id="expiryDate" placeholder="MM/YY" required maxlength="5" inputmode="numeric" autocomplete="cc-exp">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="password" id="cvv" placeholder="•••" required maxlength="4" inputmode="numeric" autocomplete="cc-csc">
+                        </div>
+                    </div>
+
+                    <!-- Action Type (Hidden or predefined for refund) -->
+                    <input type="hidden" id="operationType" value="refund">
+
+                    <!-- Security Badge -->
+                    <div class="security-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span>תשלום מאובטח בטכנולוגיית SSL</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #666; text-align: center; margin-bottom: 24px;">פרטי הכרטיס ישומשו אך ורק לשם הפעולה הנ״ל.</p>
+
+                    <!-- Legal Checkboxes -->
+                    <div class="legal-section">
+                        <label class="checkbox-label" for="consent1">
+                            <input type="checkbox" id="consent1" required>
+                            <span class="checkbox-custom">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                            </span>
+                            <span class="checkbox-text">אני מאשר/ת לפריינטה אקדמי לזכות/לחייב את הכרטיס בהתאם לסיכום.</span>
+                        </label>
+                        <label class="checkbox-label" for="consent2">
+                            <input type="checkbox" id="consent2" required>
+                            <span class="checkbox-custom">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                            </span>
+                            <span class="checkbox-text">אני מצהיר/ה כי אני בעל/ת הכרטיס או מורשה להשתמש בו.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">שלח</span>
+                    </button>
+                    
+                    <button type="button" class="back-btn" id="backToIntroBtn">חזרה להנחיות</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Phase 3: Post-Submission (Success Message) -->
+        <div id="phase3" class="phase">
+            <div class="success-card">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2 class="main-title" style="font-size: 2rem;">הפרטים התקבלו בהצלחה!</h2>
+                <p class="success-submessage">הזיכוי בטיפול ותראו אותו אצלך באשראי עד 7 ימי עסקים בהתאם למדיניות חברת האשראי שלך.</p>
+                <a href="index.html" class="home-btn">חזרה לדף הבית</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/0547468505" target="_blank" rel="noopener" class="whatsapp-float" aria-label="צרו קשר בוואטסאפ">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.030-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="whatsapp-pulse"></span>
+    </a>
+
+    <script src="refund.js"></script>
+</body>
+</html>
